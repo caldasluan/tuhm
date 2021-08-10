@@ -4,6 +4,7 @@ import androidx.lifecycle.*
 import br.com.pignata.tuhm.data.database.entity.ProjectEntity
 import br.com.pignata.tuhm.repository.DatabaseRepository
 import kotlinx.coroutines.launch
+import java.io.File
 
 class AddEditProjectViewModel(
     private val state: SavedStateHandle,
@@ -40,7 +41,15 @@ class AddEditProjectViewModel(
     fun deleteProject(projectEntity: ProjectEntity) {
         viewModelScope.launch {
             addEditProjectStateMutable.postValue(AddEditProjectStatus.STATE_LOADING)
+
+            repository.loadProblemsWithIdProject(projectEntity.id).forEach {
+                it.srcImage?.let { srcImage ->
+                    val file = File(srcImage)
+                    if (file.exists()) file.delete()
+                }
+            }
             repository.deleteProject(projectEntity)
+
             addEditProjectStateMutable.postValue(AddEditProjectStatus.STATE_DELETE)
         }
     }

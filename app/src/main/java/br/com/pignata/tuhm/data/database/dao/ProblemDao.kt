@@ -5,6 +5,9 @@ import br.com.pignata.tuhm.data.database.entity.ProblemEntity
 
 @Dao
 abstract class ProblemDao {
+    @Query("SELECT * FROM problem WHERE id_project = :idProject")
+    abstract suspend fun loadProblemsWithIdProject(idProject: Int): List<ProblemEntity>
+
     @Insert
     abstract suspend fun insertProblem(problem: ProblemEntity)
 

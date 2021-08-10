@@ -16,6 +16,7 @@
     <string name="title_list_heuristics">Heurísticas</string>
     <string name="title_alert_delete_project">Deletar Avaliação</string>
     <string name="title_alert_delete_problem">Deletar Problema</string>
+    <string name="title_alert_change_img_problem">Alterar Imagem</string>
 
     <string name="txt_title">Título</string>
     <string name="txt_description">Descrição</string>
@@ -38,6 +39,7 @@
     <string name="txt_list_sub_heuristic">HU%d.%d - %s</string>
     <string name="txt_alert_delete_project">Você tem certeza que deseja deletar essa Avaliação?</string>
     <string name="txt_alert_delete_problem">Você tem certeza que deseja deletar esse problema?</string>
+    <string name="txt_alert_change_img_problem">Você deseja alterar ou remover a imagem?</string>
     <string name="txt_problems_found">Problemas Encontrados</string>
     <string name="txt_gravity_absent">Inexistente: %d</string>
     <string name="txt_gravity_cosmetic">Problema Cosmético: %d</string>
@@ -48,7 +50,7 @@
 
     <string name="error_title_project_null">Insira um nome para a sua Avaliação.</string>
     <string name="error_description_project_null">Insira uma descrição para a sua Avaliação.</string>
-    <string name="error_title_problem_null">Insira um nome para o problema.</string>
+    <string name="error_description_problem_null">Insira uma descrição para o problema.</string>
     <string name="error_gravity_problem_null">Insira uma gravidade para o problema.</string>
     <string name="error_list_projects_empty">Ops! Você ainda não possui avaliações.</string>
     <string name="error_list_problems_empty">Ops! Você ainda não inseriu problemas cadastrados.</string>
@@ -59,9 +61,11 @@
     <string name="btn_cancel">cancelar</string>
     <string name="btn_report">relatório</string>
     <string name="btn_edit">editar</string>
+    <string name="btn_change">alterar</string>
     <string name="btn_add">adicionar</string>
     <string name="btn_details">detalhes</string>
     <string name="btn_delete">deletar</string>
+    <string name="btn_remove">remover</string>
 
     <string-array name="list_gravity">
         <item>Inexistente</item>

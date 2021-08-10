@@ -1,6 +1,8 @@
 package br.com.pignata.tuhm.view.fragment
 
 import android.app.AlertDialog
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -8,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -23,6 +27,9 @@ import br.com.pignata.tuhm.view.view_model.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
+import java.io.File
+import java.io.FileOutputStream
+
 
 class AddEditProblemFragment : Fragment() {
     private lateinit var binding: FragmentAddEditProblemBinding
@@ -34,6 +41,15 @@ class AddEditProblemFragment : Fragment() {
     private val listHeuristic by lazy { context?.resources?.getStringArray(R.array.list_title_heuristic) }
     private val listGravity by lazy { context?.resources?.getStringArray(R.array.list_gravity) }
     private val mode by lazy { if (args.problem != null) ModeProblem.MODE_EDIT else ModeProblem.MODE_ADD }
+    private val getImage = registerForActivityResult(ActivityResultContracts.GetContent()) {
+        it?.let {
+            val imageStream = context?.contentResolver?.openInputStream(it)
+            val bitmap = BitmapFactory.decodeStream(imageStream)
+            addEditProblemViewModel.saveImage(bitmap)
+        } ?: run {
+            addEditProblemViewModel.saveImage(null)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,39 +79,27 @@ class AddEditProblemFragment : Fragment() {
             )
         }
 
-        binding.btnSave.setOnSingleClickListener {
-            binding.edtGravity.error = if (binding.edtGravity.editText?.text.isNullOrEmpty())
-                getString(R.string.error_gravity_problem_null) else null
-
-            if (binding.edtGravity.error.isNullOrEmpty()) {
-                val listHeuristics = mutableListOf<Int>()
-                mainViewModel.heuristicsSelected.value?.forEach {
-                    if (it.value) listHeuristics.add(it.key)
-                }
-                if (mode == ModeProblem.MODE_EDIT) {
-                    addEditProblemViewModel.updateProblem(
-                        args.problem?.id ?: 0,
-                        binding.edtDescription.editText?.text.toString(),
-                        listGravity?.indexOf(binding.edtGravity.editText?.text.toString()) ?: 0,
-                        listHeuristics,
-                        args.idContrato
-                    )
-                } else {
-                    addEditProblemViewModel.insertProblem(
-                        binding.edtDescription.editText?.text.toString(),
-                        listGravity?.indexOf(binding.edtGravity.editText?.text.toString()) ?: 0,
-                        listHeuristics,
-                        args.idContrato
-                    )
-                }
-            }
-        }
+        binding.btnSave.setOnSingleClickListener { clickSave() }
 
         binding.btnCancel.setOnSingleClickListener { navController.popBackStack() }
+
+        binding.btnEditImg.setOnSingleClickListener {
+            addEditProblemViewModel.image.value?.let {
+                AlertDialog.Builder(context)
+                    .setTitle(R.string.title_alert_change_img_problem)
+                    .setMessage(R.string.txt_alert_change_img_problem)
+                    .setPositiveButton(R.string.btn_change) { _, _ -> getImage.launch("image/*") }
+                    .setNegativeButton(R.string.btn_remove) { _, _ ->
+                        addEditProblemViewModel.saveImage(null)
+                    }
+                    .show()
+            } ?: run { getImage.launch("image/*") }
+        }
 
         if (mode == ModeProblem.MODE_EDIT) {
             binding.edtDescription.editText?.setText(args.problem?.description)
             binding.edtGravity.editText?.setText(listGravity?.get(args.problem?.gravity ?: 0))
+            addEditProblemViewModel.saveImageInitialize(BitmapFactory.decodeFile(args.problem?.srcImage))
             setHasOptionsMenu(true)
         }
 
@@ -129,6 +133,13 @@ class AddEditProblemFragment : Fragment() {
         addEditProblemViewModel.stateGravity.observe(viewLifecycleOwner) {
             binding.edtGravity.editText?.setText(it)
             setArrayAdapter()
+        }
+        addEditProblemViewModel.image.observe(viewLifecycleOwner) {
+            it?.let { binding.imgProblem.setImageBitmap(it) } ?: run {
+                binding.imgProblem.setImageDrawable(
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_empty_img)
+                )
+            }
         }
     }
 
@@ -176,6 +187,68 @@ class AddEditProblemFragment : Fragment() {
                 binding.edtDescription.editText?.text.toString(),
                 binding.edtGravity.editText?.text.toString()
             )
+        }
+    }
+
+    private fun clickSave() {
+        binding.edtGravity.error = if (binding.edtGravity.editText?.text.isNullOrEmpty())
+            getString(R.string.error_gravity_problem_null) else null
+        binding.edtDescription.error = if (binding.edtDescription.editText?.text.isNullOrEmpty())
+            getString(R.string.error_description_problem_null) else null
+
+        if (binding.edtGravity.error.isNullOrEmpty() && binding.edtDescription.error.isNullOrEmpty()) {
+            val listHeuristics = mutableListOf<Int>()
+            mainViewModel.heuristicsSelected.value?.forEach {
+                if (it.value) listHeuristics.add(it.key)
+            }
+            val path = updateImage()
+            if (mode == ModeProblem.MODE_EDIT) {
+                addEditProblemViewModel.updateProblem(
+                    args.problem?.id ?: 0,
+                    binding.edtDescription.editText?.text.toString(),
+                    listGravity?.indexOf(binding.edtGravity.editText?.text.toString()) ?: 0,
+                    listHeuristics,
+                    path,
+                    args.idContrato
+                )
+            } else {
+                addEditProblemViewModel.insertProblem(
+                    binding.edtDescription.editText?.text.toString(),
+                    listGravity?.indexOf(binding.edtGravity.editText?.text.toString()) ?: 0,
+                    listHeuristics,
+                    path,
+                    args.idContrato
+                )
+            }
+        }
+    }
+
+    private fun updateImage(): String? {
+        try {
+            val file = if (args.problem?.srcImage.isNullOrEmpty()) {
+                val fileName = "problem_${args.idContrato}_${System.currentTimeMillis()}.jpg"
+
+                val fileDir = File(context?.filesDir, File.separator + "img_problems")
+                if (!fileDir.exists()) fileDir.mkdir()
+
+                File(fileDir, File.separator + fileName)
+            } else {
+                File(args.problem?.srcImage)
+            }
+
+            addEditProblemViewModel.image.value?.let {
+                if (!file.exists()) file.createNewFile()
+
+                val out = FileOutputStream(file)
+                it.compress(Bitmap.CompressFormat.JPEG, 90, out)
+                return file.path
+            } ?: kotlin.run {
+                if (file.exists()) file.delete()
+                return null
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return null
         }
     }
 

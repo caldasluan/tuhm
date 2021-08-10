@@ -2,6 +2,7 @@ package br.com.pignata.tuhm.view.view_model
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import br.com.pignata.tuhm.R
@@ -91,7 +92,7 @@ class ReportViewModel : ViewModel() {
         problems.sortedByDescending { it.gravity }.forEach {
             val color = colorBackgroundGravity(it.gravity ?: -1)
 
-            val table = Table(UnitValue.createPercentArray(floatArrayOf(1f))).apply {
+            val table = Table(UnitValue.createPercentArray(floatArrayOf(10f, 1f))).apply {
                 useAllAvailableWidth()
                 setMarginTop(20f)
                 setBackgroundColor(color, .2f)
@@ -114,6 +115,26 @@ class ReportViewModel : ViewModel() {
                         list.add(listHeuristic?.get(itHeuristic))
                     }
                     add(list)
+                })
+
+                addCell(Cell().apply {
+                    setBorder(Border.NO_BORDER)
+                    it.srcImage?.let { srcImage ->
+                        try {
+                            val bmp = BitmapFactory.decodeFile(srcImage)
+                            val stream = ByteArrayOutputStream()
+                            bmp.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+                            val byteArray = stream.toByteArray()
+                            bmp.recycle()
+                            add(Image(ImageDataFactory.create(byteArray)).apply {
+                                setMargins(10f, 20f, 10f, 10f)
+                                setWidth(100f)
+                                setHeight((100f / bmp.width) * bmp.height)
+                            })
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+                    }
                 })
             }
 

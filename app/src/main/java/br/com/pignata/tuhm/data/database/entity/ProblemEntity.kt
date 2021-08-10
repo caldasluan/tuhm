@@ -13,5 +13,6 @@ data class ProblemEntity(
     @ColumnInfo val description: String?,
     @ColumnInfo val gravity: Int?,
     @ColumnInfo(name = "list_heuristics") val listHeuristics: List<Int>?,
+    @ColumnInfo val srcImage: String?,
     @ColumnInfo(name = "id_project") val idProject: Int?
 ) : Parcelable

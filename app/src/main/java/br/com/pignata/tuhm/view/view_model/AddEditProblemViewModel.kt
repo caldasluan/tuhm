@@ -1,9 +1,11 @@
 package br.com.pignata.tuhm.view.view_model
 
+import android.graphics.Bitmap
 import androidx.lifecycle.*
 import br.com.pignata.tuhm.data.database.entity.ProblemEntity
 import br.com.pignata.tuhm.repository.DatabaseRepository
 import kotlinx.coroutines.launch
+import java.io.File
 
 class AddEditProblemViewModel(
     private val state: SavedStateHandle,
@@ -17,6 +19,11 @@ class AddEditProblemViewModel(
     val newProblemState: LiveData<NewProblemStatus>
         get() = newProblemStateMutable
 
+    private val imageMutableLazy = lazy { MutableLiveData<Bitmap?>() }
+    private val imageMutable: MutableLiveData<Bitmap?> by imageMutableLazy
+    val image: LiveData<Bitmap?>
+        get() = imageMutable
+
     val stateDescription = state.getLiveData<String?>("stateDescription")
     val stateGravity = state.getLiveData<String?>("stateGravity")
 
@@ -24,6 +31,7 @@ class AddEditProblemViewModel(
         description: String,
         gravity: Int,
         listHeuristics: List<Int>,
+        image: String?,
         idProject: Int
     ) {
         viewModelScope.launch {
@@ -32,6 +40,7 @@ class AddEditProblemViewModel(
                 description,
                 gravity,
                 listHeuristics,
+                image,
                 idProject
             )
             newProblemStateMutable.postValue(NewProblemStatus.STATE_ADD)
@@ -43,6 +52,7 @@ class AddEditProblemViewModel(
         description: String,
         gravity: Int,
         listHeuristics: List<Int>,
+        image: String?,
         idProject: Int
     ) {
         viewModelScope.launch {
@@ -52,6 +62,7 @@ class AddEditProblemViewModel(
                 description,
                 gravity,
                 listHeuristics,
+                image,
                 idProject
             )
             newProblemStateMutable.postValue(NewProblemStatus.STATE_EDIT)
@@ -61,8 +72,24 @@ class AddEditProblemViewModel(
     fun deleteProblem(problemEntity: ProblemEntity) {
         viewModelScope.launch {
             newProblemStateMutable.postValue(NewProblemStatus.STATE_LOADING)
+
+            problemEntity.srcImage?.let {
+                val file = File(it)
+                if (file.exists()) file.delete()
+            }
             repository.deleteProblem(problemEntity)
+
             newProblemStateMutable.postValue(NewProblemStatus.STATE_DELETE)
+        }
+    }
+
+    fun saveImage(image: Bitmap?) {
+        imageMutable.value = image
+    }
+
+    fun saveImageInitialize(image: Bitmap?) {
+        if (!imageMutableLazy.isInitialized()) {
+            saveImage(image)
         }
     }
 

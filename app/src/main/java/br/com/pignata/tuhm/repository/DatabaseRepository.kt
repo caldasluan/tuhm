@@ -37,6 +37,7 @@ class DatabaseRepository(private val projectDao: ProjectDao, private val problem
         description: String,
         gravity: Int,
         listHeuristics: List<Int>,
+        image: String?,
         idProject: Int
     ) {
         problemDao.insertProblemAndUpdateProject(
@@ -44,7 +45,8 @@ class DatabaseRepository(private val projectDao: ProjectDao, private val problem
                 description = description,
                 gravity = gravity,
                 listHeuristics = listHeuristics,
-                idProject = idProject
+                idProject = idProject,
+                srcImage = image
             )
         )
     }
@@ -54,12 +56,16 @@ class DatabaseRepository(private val projectDao: ProjectDao, private val problem
         description: String,
         gravity: Int,
         listHeuristics: List<Int>,
+        image: String?,
         idProject: Int
     ) {
         problemDao.updateProblemAndProject(
-            ProblemEntity(id, description, gravity, listHeuristics, idProject)
+            ProblemEntity(id, description, gravity, listHeuristics, image, idProject)
         )
     }
+
+    suspend fun loadProblemsWithIdProject(idProject: Int): List<ProblemEntity> =
+        problemDao.loadProblemsWithIdProject(idProject)
 
     fun loadAllProjects(): Flow<List<ProjectEntity>> = projectDao.loadAllProjects()
 
