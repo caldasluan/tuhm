@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    android:label="@string/title_project"
+    app:startDestination="@id/listProjectsFragment">
+
+    <fragment
+        android:id="@+id/listProjectsFragment"
+        android:name="br.com.pignata.tuhm.view.fragment.ListProjectsFragment"
+        android:label="@string/title_projects"
+        tools:layout="@layout/fragment_list_projects">
+        <action
+            android:id="@+id/action_listProjectsFragment_to_newProjectFragment"
+            app:destination="@id/addEditProjectFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <argument
+            android:name="MenuSearch"
+            android:defaultValue="true"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_listProjectsFragment_to_projectFragment"
+            app:destination="@id/projectFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditProjectFragment"
+        android:name="br.com.pignata.tuhm.view.fragment.AddEditProjectFragment"
+        android:label="@string/title_new_project"
+        tools:layout="@layout/fragment_add_edit_project">
+        <argument
+            android:name="project"
+            android:defaultValue="@null"
+            app:argType="br.com.pignata.tuhm.data.database.entity.ProjectEntity"
+            app:nullable="true" />
+        <argument
+            android:name="MenuDelete"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/projectFragment"
+        android:name="br.com.pignata.tuhm.view.fragment.ProjectFragment"
+        android:label="@string/title_project"
+        tools:layout="@layout/fragment_project">
+        <argument
+            android:name="idProject"
+            app:argType="integer" />
+        <argument
+            android:name="MenuSearch"
+            android:defaultValue="true"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_projectFragment_to_newProblemFragment"
+            app:destination="@id/newProblemFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_projectFragment_to_newProjectFragment"
+            app:destination="@id/addEditProjectFragment" />
+        <action
+            android:id="@+id/action_projectFragment_to_reportFragment"
+            app:destination="@id/reportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newProblemFragment"
+        android:name="br.com.pignata.tuhm.view.fragment.AddEditProblemFragment"
+        android:label="@string/title_problem"
+        tools:layout="@layout/fragment_add_edit_problem">
+        <argument
+            android:name="idContrato"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_newProblemFragment_to_listHeuristicsFragment"
+            app:destination="@id/listHeuristicsFragment" />
+        <argument
+            android:name="problem"
+            android:defaultValue="@null"
+            app:argType="br.com.pignata.tuhm.data.database.entity.ProblemEntity"
+            app:nullable="true" />
+        <argument
+            android:name="MenuDelete"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/listHeuristicsFragment"
+        android:name="br.com.pignata.tuhm.view.fragment.ListHeuristicsFragment"
+        android:label="@string/title_list_heuristics"
+        tools:layout="@layout/fragment_list_heuristics">
+        <action
+            android:id="@+id/action_listHeuristicsFragment_to_heuristicFragment"
+            app:destination="@id/heuristicFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/heuristicFragment"
+        android:name="br.com.pignata.tuhm.view.fragment.HeuristicFragment"
+        android:label="@string/title_heuristic"
+        tools:layout="@layout/fragment_heuristic">
+        <argument
+            android:name="idHeuristic"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="br.com.pignata.tuhm.view.fragment.ReportFragment"
+        android:label="@string/title_report"
+        tools:layout="@layout/fragment_report">
+        <argument
+            android:name="projectWithProblem"
+            app:argType="br.com.pignata.tuhm.data.database.entity.ProjectWithProblem" />
+        <action
+            android:id="@+id/action_reportFragment_to_reportProblemFragment"
+            app:destination="@id/reportProblemFragment" />
+        <argument
+            android:name="MenuShare"
+            android:defaultValue="true"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportProblemFragment"
+        android:name="br.com.pignata.tuhm.view.fragment.ReportProblemFragment"
+        android:label="@string/title_report_problem"
+        tools:layout="@layout/fragment_report_problem">
+        <argument
+            android:name="problem"
+            app:argType="br.com.pignata.tuhm.data.database.entity.ProblemEntity" />
+    </fragment>
+</navigation>

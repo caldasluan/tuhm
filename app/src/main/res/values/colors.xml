@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green_light">#60ad5e</color>
+    <color name="green">#2e7d32</color>
+    <color name="green_dark">#005005</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="red_gravity">#B00020</color>
+    <color name="orange_gravity">#FB8C00</color>
+    <color name="yellow_gravity">#FFEB3B</color>
+    <color name="green_gravity">#4CAF50</color>
+    <color name="blue_gravity">#2196F3</color>
+
+    <integer-array name="colors_gravity">
+        <item>@color/blue_gravity</item>
+        <item>@color/green_gravity</item>
+        <item>@color/yellow_gravity</item>
+        <item>@color/orange_gravity</item>
+        <item>@color/red_gravity</item>
+    </integer-array>
+</resources>
