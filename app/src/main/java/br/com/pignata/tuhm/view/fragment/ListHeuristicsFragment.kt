@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -41,7 +40,8 @@ class ListHeuristicsFragment : Fragment() {
         mainViewModel.heuristicsSelected.observe(viewLifecycleOwner) {
             listBindingHeuristics.forEachIndexed { index, heuristicBinding ->
                 val check = it.getOrElse(index) { false }
-                if (heuristicBinding.checkTitle.isChecked != check) heuristicBinding.checkTitle.isChecked = check
+                if (heuristicBinding.checkTitle.isChecked != check) heuristicBinding.checkTitle.isChecked =
+                    check
             }
         }
     }
@@ -74,6 +74,8 @@ class ListHeuristicsFragment : Fragment() {
                     bindingHeuristic.iconExpand.animate().rotation(180f).start()
                 }
             }
+            bindingHeuristic.btnDetails.contentDescription =
+                getString(R.string.cont_desc_btn_detail_heuristic, index + 1)
             bindingHeuristic.btnDetails.setOnSingleClickListener {
                 navController.navigate(
                     ListHeuristicsFragmentDirections.actionListHeuristicsFragmentToHeuristicFragment(

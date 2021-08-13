@@ -48,9 +48,9 @@ class AddEditProjectFragment : Fragment() {
             }
         }
 
-        binding.title.editText?.doOnTextChanged { _, _, _, _ -> binding.title.error = null }
+        binding.title.editText?.doOnTextChanged { _, _, _, _ -> binding.title.isErrorEnabled = false }
         binding.description.editText?.doOnTextChanged { _, _, _, _ ->
-            binding.description.error = null
+            binding.title.isErrorEnabled = false
         }
 
         binding.btnSave.setOnSingleClickListener {

@@ -57,6 +57,11 @@
     <string name="error_list_heuristics_empty">Ops! Você ainda não adicionou heurísticas.</string>
     <string name="error_report_heuristics_empty">Nenhuma heurística violada</string>
 
+    <string name="cont_desc_btn_add_project">Adicionar uma nova análise</string>
+    <string name="cont_desc_btn_add_problem">Adicionar um novo problema</string>
+    <string name="cont_desc_img_list_heuristic">Mostrar ou ocultar sub-heurísticas</string>
+    <string name="cont_desc_btn_detail_heuristic">Mostrar detalhes da heurística %d</string>
+
     <string name="btn_save">salvar</string>
     <string name="btn_cancel">cancelar</string>
     <string name="btn_report">relatório</string>

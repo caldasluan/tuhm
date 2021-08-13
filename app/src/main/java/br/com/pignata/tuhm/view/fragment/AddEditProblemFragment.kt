@@ -62,10 +62,10 @@ class AddEditProblemFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.edtDescription.editText?.doOnTextChanged { _, _, _, _ ->
-            binding.edtDescription.error = null
+            binding.edtDescription.isErrorEnabled = false
         }
         binding.edtGravity.editText?.doOnTextChanged { _, _, _, _ ->
-            binding.edtGravity.error = null
+            binding.edtGravity.isErrorEnabled = false
         }
 
         binding.recyclerView.apply {
