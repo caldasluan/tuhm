@@ -1,5 +1,6 @@
 package br.com.pignata.tuhm.view.fragment
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,6 +35,14 @@ class ReportProblemFragment : Fragment() {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = newProblemAdapter
+        }
+
+        if (!args.problem.srcImage.isNullOrEmpty()) {
+            val bitmap = BitmapFactory.decodeFile(args.problem.srcImage)
+            binding.imgProblem.setImageBitmap(bitmap)
+            binding.imgProblem.visibility = View.VISIBLE
+        } else {
+            binding.imgProblem.visibility = View.GONE
         }
 
         val list = mutableListOf<String>()
