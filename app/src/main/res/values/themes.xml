@@ -17,6 +17,7 @@
 
     <style name="Theme.Tuhm.Splash" parent="Theme.Tuhm.NoActionBar">
         <item name="android:windowBackground">@drawable/background_splash</item>
+        <item name="android:windowSplashscreenContent" tools:targetApi="o">@drawable/background_splash</item>
     </style>
 
     <style name="Theme.Tuhm.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
