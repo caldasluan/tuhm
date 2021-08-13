@@ -22,7 +22,7 @@
     <string name="txt_description">Descrição</string>
     <string name="txt_gravity">Gravidade</string>
     <string name="txt_search">Pesquisar…</string>
-    <string name="txt_create_project">Nova Avaliação criado.</string>
+    <string name="txt_create_project">Nova Avaliação criada.</string>
     <string name="txt_edit_project">A Avaliação foi alterada.</string>
     <string name="txt_delete_project">A Avaliação foi excluída.</string>
     <string name="txt_create_problem">Novo problema criado.</string>
