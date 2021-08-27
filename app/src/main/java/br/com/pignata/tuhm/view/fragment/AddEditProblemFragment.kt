@@ -1,8 +1,11 @@
 package br.com.pignata.tuhm.view.fragment
 
+import android.app.Activity
 import android.app.AlertDialog
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -12,6 +15,7 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -24,6 +28,8 @@ import br.com.pignata.tuhm.view.adapter.NewProblemAdapter
 import br.com.pignata.tuhm.view.view.setOnSingleClickListener
 import br.com.pignata.tuhm.view.view_model.AddEditProblemViewModel
 import br.com.pignata.tuhm.view.view_model.MainViewModel
+import com.dsphotoeditor.sdk.activity.DsPhotoEditorActivity
+import com.dsphotoeditor.sdk.utils.DsPhotoEditorConstants
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
@@ -41,15 +47,23 @@ class AddEditProblemFragment : Fragment() {
     private val listHeuristic by lazy { context?.resources?.getStringArray(R.array.list_title_heuristic) }
     private val listGravity by lazy { context?.resources?.getStringArray(R.array.list_gravity) }
     private val mode by lazy { if (args.problem != null) ModeProblem.MODE_EDIT else ModeProblem.MODE_ADD }
+
     private val getImage = registerForActivityResult(ActivityResultContracts.GetContent()) {
-        it?.let {
-            val imageStream = context?.contentResolver?.openInputStream(it)
-            val bitmap = BitmapFactory.decodeStream(imageStream)
-            addEditProblemViewModel.saveImage(bitmap)
-        } ?: run {
-            addEditProblemViewModel.saveImage(null)
-        }
+        editImage.launch(configureIntentEditImage(it))
     }
+
+    private val editImage =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                it.data?.data?.let { uri ->
+                    val imageStream = context?.contentResolver?.openInputStream(uri)
+                    val bitmap = BitmapFactory.decodeStream(imageStream)
+                    addEditProblemViewModel.saveImage(bitmap)
+                } ?: run {
+                    addEditProblemViewModel.saveImage(null)
+                }
+            }
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -249,6 +263,58 @@ class AddEditProblemFragment : Fragment() {
         } catch (e: Exception) {
             e.printStackTrace()
             return null
+        }
+    }
+
+    private fun configureIntentEditImage(uri: Uri): Intent {
+        return Intent(context, DsPhotoEditorActivity::class.java).apply {
+            data = uri
+            context?.let { context ->
+                putExtra(
+                    DsPhotoEditorConstants.DS_TOOL_BAR_BACKGROUND_COLOR,
+                    ContextCompat.getColor(context, R.color.green)
+                )
+                putExtra(
+                    DsPhotoEditorConstants.DS_TOP_BUTTON_APPLY_DRAWABLE,
+                    R.drawable.ic_done_edit_image
+                )
+                putExtra(
+                    DsPhotoEditorConstants.DS_TOP_BUTTON_CANCEL_DRAWABLE,
+                    R.drawable.ic_clear_edit_image
+                )
+                putExtra(
+                    DsPhotoEditorConstants.DS_TOOL_CROP_DRAWABLE,
+                    R.drawable.ic_crop_edit_image
+                )
+                putExtra(
+                    DsPhotoEditorConstants.DS_TOOL_DRAW_DRAWABLE,
+                    R.drawable.ic_draw_edit_image
+                )
+                putExtra(
+                    DsPhotoEditorConstants.DS_TOOL_STICKER_DRAWABLE,
+                    R.drawable.ic_sticker_edit_image
+                )
+                putExtra(
+                    DsPhotoEditorConstants.DS_TOOL_TEXT_DRAWABLE,
+                    R.drawable.ic_text_edit_image
+                )
+            }
+            putExtra(
+                DsPhotoEditorConstants.DS_PHOTO_EDITOR_TOOLS_TO_HIDE,
+                intArrayOf(
+                    DsPhotoEditorActivity.TOOL_CONTRAST,
+                    DsPhotoEditorActivity.TOOL_EXPOSURE,
+                    DsPhotoEditorActivity.TOOL_FILTER,
+                    DsPhotoEditorActivity.TOOL_ORIENTATION,
+                    DsPhotoEditorActivity.TOOL_PIXELATE,
+                    DsPhotoEditorActivity.TOOL_ROUND,
+                    DsPhotoEditorActivity.TOOL_SATURATION,
+                    DsPhotoEditorActivity.TOOL_SHARPNESS,
+                    DsPhotoEditorActivity.TOOL_VIGNETTE,
+                    DsPhotoEditorActivity.TOOL_WARMTH,
+                    DsPhotoEditorActivity.TOOL_FRAME
+                )
+            )
         }
     }
 
