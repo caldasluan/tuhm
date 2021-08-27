@@ -1,12 +1,14 @@
 package br.com.pignata.tuhm.view.fragment
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -23,6 +25,8 @@ class ListHeuristicsFragment : Fragment() {
     private val navController: NavController by lazy { findNavController() }
     private val mainViewModel: MainViewModel by sharedViewModel()
     private val listBindingHeuristics: MutableList<ViewHolderHeuristicBinding> by lazy { mutableListOf() }
+    private val listSearch: MutableList<View> by lazy { mutableListOf() }
+    private var currentSearchItem = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +41,22 @@ class ListHeuristicsFragment : Fragment() {
         listBindingHeuristics.clear()
         addHeuristics()
 
+        binding.searchBefore.setOnClickListener {
+            currentSearchItem =
+                if (currentSearchItem <= 0) listSearch.size - 1 else currentSearchItem - 1
+            binding.searchTotal.text = "${currentSearchItem + 1}/${listSearch.size}"
+
+            scrollTo(listSearch[currentSearchItem])
+        }
+
+        binding.searchNext.setOnClickListener {
+            currentSearchItem =
+                if (currentSearchItem >= listSearch.size - 1) 0 else currentSearchItem + 1
+            binding.searchTotal.text = "${currentSearchItem + 1}/${listSearch.size}"
+
+            scrollTo(listSearch[currentSearchItem])
+        }
+
         mainViewModel.heuristicsSelected.observe(viewLifecycleOwner) {
             listBindingHeuristics.forEachIndexed { index, heuristicBinding ->
                 val check = it.getOrElse(index) { false }
@@ -44,6 +64,8 @@ class ListHeuristicsFragment : Fragment() {
                     check
             }
         }
+
+        mainViewModel.textSearch.observe(viewLifecycleOwner) { search(it) }
     }
 
     private fun addHeuristics() {
@@ -111,11 +133,7 @@ class ListHeuristicsFragment : Fragment() {
             indexSubHeuristic + 1,
             textCheck
         )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            text.setTextAppearance(R.style.TextAppearance_MaterialComponents_Body2)
-        } else {
-            text.setTextAppearance(context, R.style.TextAppearance_MaterialComponents_Body2)
-        }
+        text.setTextAppearance(R.style.TextAppearance_MaterialComponents_Body2)
 
         val divider = View(context, null, 0, R.style.App_Divider)
 
@@ -135,5 +153,40 @@ class ListHeuristicsFragment : Fragment() {
 
         layout.addView(text, layoutCheck)
         layout.addView(divider, layoutDivider)
+    }
+
+    private fun scrollTo(view: View) {
+        val position = if (view is CheckBox) (view.parent.parent as? CardView)?.top ?: 0
+        else if (view is TextView) {
+            (view.parent as? LinearLayout)?.visibility = View.VISIBLE
+
+            view.top
+                .plus((view.parent as? LinearLayout)?.top ?: 0)
+                .plus((view.parent.parent.parent as? CardView)?.top ?: 0)
+        } else 0
+
+        binding.scroll.smoothScrollTo(0, position)
+    }
+
+    private fun search(query: String?) {
+        if (query?.isNotEmpty() == true) {
+            listSearch.clear()
+
+            listBindingHeuristics.forEach {
+                if (it.checkTitle.text.contains(query, true))
+                    listSearch.add(it.checkTitle)
+
+                it.layoutSubHeuristics.children.forEach { v ->
+                    if ((v as? TextView)?.text?.contains(query, true) == true)
+                        listSearch.add(v)
+                }
+            }
+
+            currentSearchItem = -1
+            binding.searchTotal.text = "0/${listSearch.size}"
+            binding.cardSearch.visibility = View.VISIBLE
+        } else {
+            binding.cardSearch.visibility = View.GONE
+        }
     }
 }
