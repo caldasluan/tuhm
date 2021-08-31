@@ -49,7 +49,9 @@ class AddEditProblemFragment : Fragment() {
     private val mode by lazy { if (args.problem != null) ModeProblem.MODE_EDIT else ModeProblem.MODE_ADD }
 
     private val getImage = registerForActivityResult(ActivityResultContracts.GetContent()) {
-        editImage.launch(configureIntentEditImage(it))
+        it?.let {
+            editImage.launch(configureIntentEditImage(it))
+        }
     }
 
     private val editImage =
