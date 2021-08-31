@@ -1,10 +1,12 @@
 package br.com.pignata.tuhm.view.fragment
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -19,6 +21,7 @@ import br.com.pignata.tuhm.enum.HeuristicEnum
 import br.com.pignata.tuhm.view.view.setOnSingleClickListener
 import br.com.pignata.tuhm.view.view_model.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+
 
 class ListHeuristicsFragment : Fragment() {
     private lateinit var binding: FragmentListHeuristicsBinding
@@ -82,6 +85,7 @@ class ListHeuristicsFragment : Fragment() {
             bindingHeuristic.checkTitle.setOnCheckedChangeListener { _, isChecked ->
                 mainViewModel.checkHeuristic(index, isChecked)
             }
+            bindingHeuristic.viewHeuristic.setOnClickListener { }
 
             bindingHeuristic.layoutCard.setOnClickListener {
                 bindingHeuristic.checkTitle.isChecked = !bindingHeuristic.checkTitle.isChecked
@@ -135,6 +139,11 @@ class ListHeuristicsFragment : Fragment() {
         )
         text.setTextAppearance(R.style.TextAppearance_MaterialComponents_Body2)
 
+        val outValue = TypedValue()
+        context?.theme?.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+        text.setBackgroundResource(outValue.resourceId)
+        text.setOnClickListener(null)
+
         val divider = View(context, null, 0, R.style.App_Divider)
 
         val layoutCheck = LinearLayout.LayoutParams(
@@ -156,16 +165,21 @@ class ListHeuristicsFragment : Fragment() {
     }
 
     private fun scrollTo(view: View) {
-        val position = if (view is CheckBox) (view.parent.parent as? CardView)?.top ?: 0
-        else if (view is TextView) {
-            (view.parent as? LinearLayout)?.visibility = View.VISIBLE
+        val position = when {
+            view.parent.parent is CardView -> (view.parent.parent as? CardView)?.top ?: 0
+            view.parent is LinearLayout -> {
+                (view.parent as? LinearLayout)?.visibility = View.VISIBLE
 
-            view.top
-                .plus((view.parent as? LinearLayout)?.top ?: 0)
-                .plus((view.parent.parent.parent as? CardView)?.top ?: 0)
-        } else 0
+                view.top
+                    .plus((view.parent as? LinearLayout)?.top ?: 0)
+                    .plus((view.parent.parent.parent as? CardView)?.top ?: 0)
+            }
+            else -> 0
+        }
 
-        binding.scroll.smoothScrollTo(0, position)
+        binding.scroll.smoothScrollTo(0, position - 50)
+        view.isPressed = true
+        Handler(Looper.getMainLooper()).postDelayed({ view.isPressed = false }, 200)
     }
 
     private fun search(query: String?) {
@@ -174,7 +188,7 @@ class ListHeuristicsFragment : Fragment() {
 
             listBindingHeuristics.forEach {
                 if (it.checkTitle.text.contains(query, true))
-                    listSearch.add(it.checkTitle)
+                    listSearch.add(it.viewHeuristic)
 
                 it.layoutSubHeuristics.children.forEach { v ->
                     if ((v as? TextView)?.text?.contains(query, true) == true)

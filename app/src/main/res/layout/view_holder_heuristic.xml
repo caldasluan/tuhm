@@ -12,6 +12,16 @@
         android:layout_height="match_parent"
         android:paddingBottom="8dp">
 
+        <View
+            android:id="@+id/view_heuristic"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="@+id/check_title"
+            app:layout_constraintEnd_toEndOf="@+id/check_title"
+            app:layout_constraintStart_toStartOf="@+id/check_title"
+            app:layout_constraintTop_toTopOf="@+id/check_title" />
+
         <CheckBox
             android:id="@+id/check_title"
             android:layout_width="0dp"
