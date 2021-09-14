@@ -29,7 +29,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_problem"
             app:layout_constraintStart_toEndOf="@+id/view_gravity"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Descrição do Problema, bla bla, pi pi pi, popo po, as dfs asdfjkdfj. Descrição do Problema, bla bla, pi pi pi, popo po, asdfjkdfj." />
@@ -44,10 +44,22 @@
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             android:textColor="@color/material_on_surface_emphasis_medium"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_problem"
             app:layout_constraintStart_toEndOf="@+id/view_gravity"
             app:layout_constraintTop_toBottomOf="@+id/txt_description"
             tools:text="Heurísticas Violadas: 5" />
+
+        <ImageView
+            android:id="@+id/img_problem"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:contentDescription="@string/cont_desc_img_problem"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

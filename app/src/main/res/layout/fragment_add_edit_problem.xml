@@ -24,6 +24,7 @@
             android:id="@+id/img_problem"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:contentDescription="@string/cont_desc_img_problem"
             app:layout_constraintDimensionRatio="2:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

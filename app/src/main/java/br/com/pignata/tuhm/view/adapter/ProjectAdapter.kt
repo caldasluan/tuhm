@@ -1,6 +1,7 @@
 package br.com.pignata.tuhm.view.adapter
 
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,6 +59,13 @@ class ProjectAdapter(context: Context?) : RecyclerView.Adapter<ProjectAdapter.Pr
                 problem.listHeuristics?.size ?: 0
             )
             binding.layoutCard.setOnClickListener { click?.invoke(problem, it) }
+            if (!problem.srcImage.isNullOrEmpty()) {
+                val bitmap = BitmapFactory.decodeFile(problem.srcImage)
+                binding.imgProblem.setImageBitmap(bitmap)
+                binding.imgProblem.visibility = View.VISIBLE
+            } else {
+                binding.imgProblem.visibility = View.GONE
+            }
         }
     }
 }

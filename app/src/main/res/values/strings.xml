@@ -61,6 +61,7 @@
     <string name="cont_desc_btn_add_problem">Adicionar um novo problema</string>
     <string name="cont_desc_img_list_heuristic">Mostrar ou ocultar sub-heurísticas</string>
     <string name="cont_desc_btn_detail_heuristic">Mostrar detalhes da heurística %d</string>
+    <string name="cont_desc_img_problem">Imagem do problema</string>
 
     <string name="btn_save">salvar</string>
     <string name="btn_cancel">cancelar</string>
