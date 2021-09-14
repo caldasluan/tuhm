@@ -56,6 +56,7 @@
     <string name="error_list_problems_empty">Ops! Você ainda não inseriu problemas cadastrados.</string>
     <string name="error_list_heuristics_empty">Ops! Você ainda não adicionou heurísticas.</string>
     <string name="error_report_heuristics_empty">Nenhuma heurística violada</string>
+    <string name="error_search_heuristic_empty">Nenhuma heurística encontrada</string>
 
     <string name="cont_desc_btn_add_project">Adicionar uma nova análise</string>
     <string name="cont_desc_btn_add_problem">Adicionar um novo problema</string>

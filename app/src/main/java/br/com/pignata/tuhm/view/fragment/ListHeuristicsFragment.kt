@@ -44,20 +44,18 @@ class ListHeuristicsFragment : Fragment() {
         listBindingHeuristics.clear()
         addHeuristics()
 
+        binding.cardSearch.setOnClickListener {}
+
         binding.searchBefore.setOnClickListener {
             currentSearchItem =
                 if (currentSearchItem <= 0) listSearch.size - 1 else currentSearchItem - 1
-            binding.searchTotal.text = "${currentSearchItem + 1}/${listSearch.size}"
-
-            scrollTo(listSearch[currentSearchItem])
+            scrollToHeuristic()
         }
 
         binding.searchNext.setOnClickListener {
             currentSearchItem =
                 if (currentSearchItem >= listSearch.size - 1) 0 else currentSearchItem + 1
-            binding.searchTotal.text = "${currentSearchItem + 1}/${listSearch.size}"
-
-            scrollTo(listSearch[currentSearchItem])
+            scrollToHeuristic()
         }
 
         mainViewModel.heuristicsSelected.observe(viewLifecycleOwner) {
@@ -164,22 +162,27 @@ class ListHeuristicsFragment : Fragment() {
         layout.addView(divider, layoutDivider)
     }
 
-    private fun scrollTo(view: View) {
-        val position = when {
-            view.parent.parent is CardView -> (view.parent.parent as? CardView)?.top ?: 0
-            view.parent is LinearLayout -> {
-                (view.parent as? LinearLayout)?.visibility = View.VISIBLE
+    private fun scrollToHeuristic() {
+        if (listSearch.isNotEmpty()) {
+            binding.searchTotal.text = "${currentSearchItem + 1}/${listSearch.size}"
 
-                view.top
-                    .plus((view.parent as? LinearLayout)?.top ?: 0)
-                    .plus((view.parent.parent.parent as? CardView)?.top ?: 0)
+            val view = listSearch[currentSearchItem]
+            val position = when {
+                view.parent.parent is CardView -> (view.parent.parent as? CardView)?.top ?: 0
+                view.parent is LinearLayout -> {
+                    (view.parent as? LinearLayout)?.visibility = View.VISIBLE
+
+                    view.top
+                        .plus((view.parent as? LinearLayout)?.top ?: 0)
+                        .plus((view.parent.parent.parent as? CardView)?.top ?: 0)
+                }
+                else -> 0
             }
-            else -> 0
-        }
 
-        binding.scroll.smoothScrollTo(0, position - 50)
-        view.isPressed = true
-        Handler(Looper.getMainLooper()).postDelayed({ view.isPressed = false }, 200)
+            binding.scroll.smoothScrollTo(0, position - 50)
+            view.isPressed = true
+            Handler(Looper.getMainLooper()).postDelayed({ view.isPressed = false }, 200)
+        }
     }
 
     private fun search(query: String?) {
@@ -197,7 +200,15 @@ class ListHeuristicsFragment : Fragment() {
             }
 
             currentSearchItem = -1
-            binding.searchTotal.text = "0/${listSearch.size}"
+            if (listSearch.isNotEmpty()) {
+                binding.searchTotal.text = "0/${listSearch.size}"
+                binding.searchBefore.visibility = View.VISIBLE
+                binding.searchNext.visibility = View.VISIBLE
+            } else {
+                binding.searchTotal.setText(R.string.error_search_heuristic_empty)
+                binding.searchBefore.visibility = View.GONE
+                binding.searchNext.visibility = View.GONE
+            }
             binding.cardSearch.visibility = View.VISIBLE
         } else {
             binding.cardSearch.visibility = View.GONE
