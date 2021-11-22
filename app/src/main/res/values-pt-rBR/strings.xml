@@ -1,0 +1,350 @@
+<resources>
+    <string name="app_name">Tuhm</string>
+
+    <string name="action_search">Pesquisar</string>
+    <string name="action_delete">Apagar</string>
+    <string name="action_share">Compartilhar</string>
+
+    <string name="title_projects">Avaliações</string>
+    <string name="title_new_project">Nova Avaliação</string>
+    <string name="title_edit_project">Editar Avaliação</string>
+    <string name="title_project">Avaliação</string>
+    <string name="title_problem">Problema</string>
+    <string name="title_heuristic">Heurística</string>
+    <string name="title_report">Relatório</string>
+    <string name="title_report_problem">Relatório do Problema</string>
+    <string name="title_list_heuristics">Heurísticas</string>
+    <string name="title_alert_delete_project">Deletar Avaliação</string>
+    <string name="title_alert_delete_problem">Deletar Problema</string>
+    <string name="title_alert_change_img_problem">Alterar Imagem</string>
+
+    <string name="txt_title">Título</string>
+    <string name="txt_description">Descrição</string>
+    <string name="txt_gravity">Gravidade</string>
+    <string name="txt_search">Pesquisar…</string>
+    <string name="txt_create_project">Nova Avaliação criada.</string>
+    <string name="txt_edit_project">A Avaliação foi alterada.</string>
+    <string name="txt_delete_project">A Avaliação foi excluída.</string>
+    <string name="txt_create_problem">Novo problema criado.</string>
+    <string name="txt_edit_problem">O problema foi alterado.</string>
+    <string name="txt_delete_problem">O problema foi excluído.</string>
+    <string name="txt_violated_heuristics">Heurísticas Violadas:</string>
+    <string name="txt_violated_heuristics_count">Heurísticas Violadas: %d</string>
+    <string name="txt_violated_heuristics_report">Heurísticas Violadas</string>
+    <string name="txt_definition">Definição</string>
+    <string name="txt_explication">Explicação</string>
+    <string name="txt_benefits">Benefícios</string>
+    <string name="txt_problems">Problemas</string>
+    <string name="txt_sub_heuristic">Sub-Heurísticas</string>
+    <string name="txt_list_sub_heuristic">HU%d.%d - %s</string>
+    <string name="txt_alert_delete_project">Você tem certeza que deseja deletar essa Avaliação?</string>
+    <string name="txt_alert_delete_problem">Você tem certeza que deseja deletar esse problema?</string>
+    <string name="txt_alert_change_img_problem">Você deseja alterar ou remover a imagem?</string>
+    <string name="txt_problems_found">Problemas Encontrados</string>
+    <string name="txt_gravity_absent">Inexistente: %d</string>
+    <string name="txt_gravity_cosmetic">Problema Cosmético: %d</string>
+    <string name="txt_gravity_small">Problema Pequeno: %d</string>
+    <string name="txt_gravity_great">Problema Grande: %d</string>
+    <string name="txt_gravity_catastrofic">Problema Catastrófico: %d</string>
+    <string name="txt_sharing">Compartilhando…</string>
+
+    <string name="error_title_project_null">Insira um nome para a sua Avaliação.</string>
+    <string name="error_description_project_null">Insira uma descrição para a sua Avaliação.</string>
+    <string name="error_description_problem_null">Insira uma descrição para o problema.</string>
+    <string name="error_gravity_problem_null">Insira uma gravidade para o problema.</string>
+    <string name="error_list_projects_empty">Ops! Você ainda não possui avaliações.</string>
+    <string name="error_list_problems_empty">Ops! Você ainda não inseriu problemas cadastrados.</string>
+    <string name="error_list_heuristics_empty">Ops! Você ainda não adicionou heurísticas.</string>
+    <string name="error_report_heuristics_empty">Nenhuma heurística violada</string>
+    <string name="error_search_heuristic_empty">Nenhuma heurística encontrada</string>
+
+    <string name="cont_desc_btn_add_project">Adicionar uma nova análise</string>
+    <string name="cont_desc_btn_add_problem">Adicionar um novo problema</string>
+    <string name="cont_desc_img_list_heuristic">Mostrar ou ocultar sub-heurísticas</string>
+    <string name="cont_desc_btn_detail_heuristic">Mostrar detalhes da heurística %d</string>
+    <string name="cont_desc_img_problem">Imagem do problema</string>
+
+    <string name="btn_save">salvar</string>
+    <string name="btn_cancel">cancelar</string>
+    <string name="btn_report">relatório</string>
+    <string name="btn_edit">editar</string>
+    <string name="btn_change">alterar</string>
+    <string name="btn_add">adicionar</string>
+    <string name="btn_details">detalhes</string>
+    <string name="btn_delete">deletar</string>
+    <string name="btn_remove">remover</string>
+
+    <string-array name="list_gravity">
+        <item>Inexistente</item>
+        <item>Problema Cosmético</item>
+        <item>Problema Pequeno</item>
+        <item>Problema Grande</item>
+        <item>Problema Catastrófico</item>
+    </string-array>
+
+    <string-array name="list_title_heuristic">
+        <item>HU1 – Visibilidade do Status do Aplicativo</item>
+        <item>HU2 – Correspondência entre o Aplicativo e o Mundo Real</item>
+        <item>HU3 – Controle do Usuário e Liberdade</item>
+        <item>HU4 – Consistência e Padrões</item>
+        <item>HU5 – Prevenção de Erros</item>
+        <item>HU6 – Minimização do Cognitive Load do Usuário</item>
+        <item>HU7 – Customização e Atalhos</item>
+        <item>HU8 - Eficiência de Uso e Desempenho</item>
+        <item>HU9 – Design Estético e Minimalista</item>
+        <item>HU10 – Ajuda ao Usuário para Reconhecer, Diagnosticar e Recuperar-se de Erros</item>
+        <item>HU11 – Ajuda e Documentação</item>
+        <item>HU12 – Interação Agradável e Respeitosa com o Usuário</item>
+        <item>HU13 – Privacidade</item>
+    </string-array>
+
+    <string-array name="list_definition_heuristic">
+        <item>O aplicativo deve manter o usuário informado sobre todos os processos, interações do usuário com o sistema e mudanças de estado dentro de um período de tempo razoável.</item>
+        <item>O aplicativo deve falar o idioma dos usuários e não em termos técnicos de sistema. O aplicativo deve exibir as informações de forma familiar ao usuário (de acordo com o contexto externo em que a aplicação está inserida), seguindo uma ordem lógica e natural.</item>
+        <item>O aplicativo deve permitir que o usuário desfaça e refaça suas ações para uma navegação clara e deve fornecer ao usuário uma opção de saída de estados indesejáveis do sistema.</item>
+        <item>O aplicativo deve seguir as convenções estabelecidas, permitindo o usuário realizar as suas tarefas de maneira familiar, padronizada e consistente.</item>
+        <item>Elimine as condições propensas a erros e apresente ao usuário uma opção de confirmação com informações adicionais antes dele se comprometer com a ação.</item>
+        <item>O aplicativo deve oferecer objetos visíveis, ações e opções para evitar que os usuários tenham que memorizar informações de uma interface para a outra.</item>
+        <item>O aplicativo deve fornecer opções de configurações básicas e avançadas, de modo a permitir a criação e personalização de atalhos para ações frequentes.</item>
+        <item>O dispositivo deve ser capaz de carregar e exibir a informação em um período de tempo razoável e minimizar as etapas necessárias para executar uma tarefa (número de etapas a serem tomadas pelo usuário para atingir uma meta). Animações e transições devem ser exibidas sem problemas e de forma fluida.</item>
+        <item>O aplicativo deve evitar exibir informações indesejadas que sobrecarreguem a tela.</item>
+        <item>O aplicativo deve exibir mensagens de erro em uma linguagem familiar para o usuário, indicando com precisão o problema e sugerindo uma solução construtiva.</item>
+        <item>O aplicativo deve fornecer documentação e ajuda fáceis de se encontrar, centrado na tarefa atual do usuário, e indicar passos concretos a serem seguidos para execução das funcionalidades do aplicativo.</item>
+        <item>O dispositivo deve fornecer uma interação agradável com o usuário, de forma com que este não se sinta desconfortável ao utilizar a aplicação.</item>
+        <item>O aplicativo deve proteger os dados confidenciais do usuário.</item>
+    </string-array>
+
+    <string-array name="list_explication_heuristic">
+        <item>Por meio da interação com o aplicativo, o usuário deve ser capaz de executar diferentes tarefas. Se as ações do usuário levarem a uma mudança de estado do aplicativo (status atual (onde estou), possíveis mudanças (o que eu posso fazer aqui) e/ou feedback (o que acabou de acontecer)), o usuário deve ser informado de alguma forma (sons, mensagens e/ou animações na tela). As ações do usuário, como o de gestos (toque na tela e/ou arraste da tela), devem dar um feedback de forma visível, clara e concisa.</item>
+        <item>Atualmente, os aplicativos têm vários modos de interação, em que os usuários podem executar tarefas de maneiras intuitivas, imitando regras de interação do mundo real. Por exemplo, ao rolar para baixo uma lista longa, se o usuário “deslizar” com certa velocidade, a lista continuará a se mover, imitando o efeito da inércia. Outro exemplo é com relação ao gesto multitoque em um aplicativo, ao executar um gesto de deslizar para a esquerda o sistema deve trazer o próximo objeto do lado direito, ou seja, mostrando o próximo objeto do lado direito (exemplo: funcionalidade de carrossel). Espera-se que cada interação mostre uma resposta semelhante à esperada no mundo real. Além disso, a linguagem (texto ou ícones) deve estar relacionada ao mundo real e/ou a termos familiares ao usuário, utilizando como base o contexto externo à que a aplicação está inserida, por exemplo: aplicações de controle médico, os termos utilizados por essa aplicação devem corresponder ao domínio/contexto médico ao qual está inserido.</item>
+        <item>Quando o usuário cometer um erro ao inserir um texto, modificando opções de configuração ou apenas atingindo um estado indesejado, o sistema deve fornecer “saídas de emergência” apropriadas. Essas saídas devem facilmente permitir que o usuário passe de um estado indesejado para um desejado. Além disso, o aplicativo deve permitir que o usuário desfaça e refaça suas ações de uma maneira simples e intuitiva, já que os usuários podem executar gestos indesejados na tela sensível ao toque de um smartphone (por exemplo: toque, swipe, etc.), o que pode levar o aplicativo a um outro estado.</item>
+        <item>Muitas vezes, diferentes partes do aplicativo que estão relacionadas e que devem ser semelhantes têm design ou lógica de utilização diferentes. Em geral, todo conceito apresentado de maneira contrastante à concepção do conceito pelo usuário produz confusão em algum grau. Essa confusão pode levar a uma diminuição da eficiência de uso ou uma baixa satisfação, entre outros efeitos colaterais. Um gesto específico de interação do usuário na interface do sistema deve ter o mesmo comportamento em todo o aplicativo, fazendo com que o modelo conceitual do usuário da possível ação/interação com a aplicação seja consistente a convenções estabelecidas internamente e externas a aplicação (por exemplo, seguir padrões de controle de gestos já bem estabelecidos em aplicativos móveis de jogos eletrônicos de luta). Além disso, é melhor evitar conflitos com as operações acionadas por um gesto no aplicativo e as operações relacionadas aos gestos padrão do sistema operacional. Dadas todas essas questões, espera-se que o sistema siga padrões e convenções, estabelecidos internamente pela aplicação ou externos a aplicação, para obter uma interface intuitiva e amigável.</item>
+        <item>O aplicativo deve ser explícito em relação a cada opção e funcionalidade disponível ao usuário. Considerando um espaço de tela limitado, isso pode ser um grande desafio. Assim, os ícones desempenham um papel muito importante, como dar um retorno ao usuário quando ele interage, e mesmo que a parte visível do ícone possa ser pequena, deve haver algum espaço extra de destino invisível que, se um usuário atingir esse espaço, a interação ainda ocorrerá. Infelizmente, às vezes uma pequena imagem não é suficiente para descrever em detalhes uma função ou algo similar, e para corrigir isso, o sistema deve fornecer informações adicionais sobre a demanda do usuário. A informação deve ser claramente exibida, tentando evitar longas sequências de diálogo. Além disso, o usuário deve ser avisado, especialmente quando ocorre algumas ações que podem ter efeitos indesejados ao usuário.</item>
+        <item>A memória humana de curto prazo é limitada, portanto o usuário não deve ser forçado a lembrar informações de uma parte do sistema para outra. Instruções sobre como usar o sistema devem ser visíveis ou fáceis de obter. Ao usar aplicativos executados em dispositivos móveis, os usuários geralmente estão executando outras tarefas ao mesmo tempo em que estão usando o aplicativo, como aplicativos de monitoramento de exercícios usados durante a atividade física, a interface deve ser adaptada a esse contexto de uso para que a carga cognitiva (Cognitive Load) do usuário seja minimizada durante o uso do sistema.</item>
+        <item>Cada usuário tem suas próprias necessidades e tentar satisfazer todas elas com um menu ou interface padrão pode ser um desafio. Assim, considere permitir que os usuários criem seus próprios atalhos e personalizações para boa parte do sistema. Através do acesso a opções de configuração avançadas, os usuários experientes podem melhorar sua eficiência de uso e novos usuários podem ter uma sensação de propriedade mais profunda. É importante ter em vista as características do público alvo do aplicativo, pois esse mapeamento permite implementar opções de personalizações mais ou menos avançadas, por exemplo.</item>
+        <item>A combinação entre recursos de hardware e necessidades de software nem sempre é a melhor. Espera-se que o aplicativo básico seja compatível com o hardware, especialmente com recursos de processamento, para evitar telas pretas e longos períodos de tempo de espera. Além disso, as animações, efeitos e transições devem ser exibidos de forma fluida e sem interrupções. Outro ponto crítico é o comprimento da sequência de etapas para executar uma tarefa. Tarefas complexas, potencialmente perigosas ou não frequentes podem conter várias etapas como reforço de segurança. Tarefas simples, frequentes ou básicas do sistema (como as principais funcionalidades do aplicativo) devem ser curtas, ou seja, ter poucas etapas para acessar e concluir.</item>
+        <item>Os textos do aplicativo não devem conter informações irrelevantes ou raramente necessárias. Cada unidade extra de informação em uma interface compete com outras unidades de informação relevantes que possam ter na interface, fazendo com que a informações extras diminuam a visibilidade de informações relevantes na interface do aplicativo. Os designers devem ter cuidado ao exibir informações na tela. Além disso, interfaces sobrecarregadas podem gerar estresse para o usuário e também podem aumentar o consumo de recursos do aplicativo em um smartphone.</item>
+        <item>Quando ocorre um erro, o usuário não precisa de detalhes técnicos ou mensagens de alerta criptográficas, mas sim de mensagens claras em uma linguagem reconhecível, com instruções sobre como se recuperar do erro. Se possível, o aplicativo deve sugerir construtivamente uma solução (que também pode incluir dicas, perguntas frequentes, etc.). Se não houver solução para o erro, ou se o erro tiver um efeito insignificante, o aplicativo deve permitir que o usuário lide com o erro normalmente.</item>
+        <item>O aplicativo deve fornecer acesso a informações detalhadas sobre as funcionalidades disponíveis de maneira clara e simples, a partir de qualquer parte ou estado do sistema onde o usuário está localizado. É recomendado que estas informações estejam incluídas no aplicativo e facilmente acessíveis, ou de outra forma, que a documentação esteja disponível em um site. Para interações muito complexas ou difíceis para os usuários iniciantes entenderem, como gestos multitoque em um smartphone touchscreen que podem ser difíceis, neste caso é aconselhável apresentar tutoriais, documentação e ajuda para que os usuários sejam elucidados sobre a forma correta de execução do gesto e assim o usuário atinge seu objetivo no uso de uma certa funcionalidade do aplicativo.</item>
+        <item>Os aplicativos móveis são projetados para serem utilizados em dispositivos portáteis (smartphones). Deste ponto de vista, a ergonomia e o conforto desempenham um papel muito importante na interação entre o usuário e o aplicativo. Os botões devem ser colocados em posições reconhecíveis pelo usuário com base em sua experiência com outros aplicativos similares. Além disso, é necessário analisar o contexto de uso no qual o aplicativo será inserido, como uma aplicação para corredores que será utilizada durante a prática esportiva, deve haver uma interface totalmente inclinada para o conforto do usuário e ergonomia durante o uso da aplicação relativo à disposição dos elementos. A interface como um todo tem que ser focada nas características de seu público alvo, e pode incluir usuários com características gerais e/ou também os mais específicos, como usuários idosos que tendem a ter certas características especiais (acessibilidade), a título de exemplo: mudanças psicossociais e funcionais que afetam a visão, a audição, o movimento, a cognição e sua relação consigo mesmas e com os outros ao seu redor, tais fatores influenciam a maneira como os elementos são organizados na interface e como o usuário irá interagir com o sistema.</item>
+        <item>O aplicativo deverá solicitar a senha do usuário para a modificação de dados importantes, além de, prover informações sobre como os dados pessoais do usuário são protegidos e sobre conteúdos de direitos autorais. Áreas da aplicação que lidam com os dados sensíveis do usuário devem conter autenticação para que qualquer tipo de interação ocorra.</item>
+    </string-array>
+
+    <string-array name="list_benefits_heuristic">
+        <item>O usuário pode ter uma melhor experiência de uso quando o aplicativo informar sobre mudanças de estado, de maneira precisa e apropriada. Outro benefício está relacionado à conscientização do usuário ao utilizar o aplicativo, dado que ele saberá se teve ou não alguma alteração significativa do estado da aplicação.</item>
+        <item>O usuário, ao reconhecer conceitos do mundo real no aplicativo, terá uma barreira menor de adaptação ao utilizar o sistema e irá interpretar corretamente as informações fornecidas na aplicação e dessa forma obterá uma maior eficiência em suas ações, pois serão apresentadas em uma ordem lógica e natural. Outro benefício é a minimização de erros cometidos pelo usuário durante o uso do sistema garantindo também uma maior eficiência de uso, pois o usuário estará mais familiarizado com o aplicativo e erros de interação do usuário na aplicação serão minimizados.</item>
+        <item>Por ter controle sobre o sistema, o usuário tem uma maior sensação de liberdade, consequentemente uma melhor experiência de uso e uma maior eficiência no uso do aplicativo.</item>
+        <item>O aplicativo que segue convenções e padrões faz com que novos usuários tenham uma curva de aprendizado mais baixa enquanto utilização do sistema, que por exemplo se beneficia da experiência obtida com o uso de outros aplicativos. Assim, erros cometidos pelo usuário nas interações com o aplicativo serão minimizados, pois o usuário estará familiarizado com a navegação do sistema.</item>
+        <item>Ao evitar que o usuário cometa erros, o mesmo gastará menos tempo tentando resolvê-los, o que pode levar a uma maior eficiência.</item>
+        <item>Ao reduzir a carga de memória (Cognitive Load), a capacidade mental e o esforço do usuário também são reduzidos e o usuário pode se concentrar em executar uma única tarefa com mais eficiência.</item>
+        <item>O usuário pode personalizar algumas ações e/ou recursos com um profundo senso de propriedade. O mesmo é verdadeiro, facilitando o acesso do usuário a recursos que são mais usados e melhor adaptando o aplicativo ao perfil do usuário. Os atalhos contribuem para atingir com eficiência as metas e, assim, fornecer benefícios reais para o usuário, como maximizar a eficiência da bateria.</item>
+        <item>Menores tempos de resposta e melhor desempenho, o que leva a um sistema eficiente.</item>
+        <item>Se o aplicativo utilize um design minimalista, o dispositivo usa menos recursos, o que deve levar a um melhor desempenho e também minimiza a quantidade de informações visuais do usuário que podem levar a menos estresse e exaustão.</item>
+        <item>Sendo capaz de obter mensagens de ajuda e instruções sobre como se recuperar do erro, os usuários são ajudados a reduzir sua frustração ao lidar com o erro.</item>
+        <item>Por meio do maior conhecimento do sistema, o usuário tende a cometer um menor número de erros e a ter uma maior eficiência no uso do aplicativo, bem como, pode obter um melhor conhecimento do sistema através de uma documentação rica e também reduzir o risco de cometer erros.</item>
+        <item>O aplicativo se torna mais intuitivo usando elementos de layout na interface que são familiares ao usuário, como colocar botões em posições reconhecíveis ou ao variar a orientação da aplicação entre vertical e horizontal, mantendo o mesmo layout dos elementos na tela. Adaptar toda a interface do aplicativo, levando em consideração as características do usuário e o contexto de uso, torna o usuário final mais eficiência nas interações com a aplicação.</item>
+        <item>O usuário obterá uma maior satisfação e confiabilidade no aplicativo ao saber que os seus dados pessoais estão protegidos.</item>
+    </string-array>
+
+    <string-array name="list_problems_heuristic">
+        <item>É importante distinguir, ao aplicar esta heurística, que o usuário pode ter problemas com a ausência de feedback devido à falta de implementação desta funcionalidade ou problemas de desempenho do aplicativo causados por um grande número de processos simultâneos e/ou devido a bateria estar com pouca carga (ativando o modo econômico de energia), afetando o desempenho do aplicativo e podendo ocasionar a falta de feedback.</item>
+        <item>Ao aplicar esta heurística, não deve ser confundido com ``HU4 – Consistência e Padrões”. Se algumas partes do sistema estão em um idioma diferente, não é uma questão relacionada a esta heurística, mas uma questão de consistência interna da aplicação (heurística HU4), enquanto a consistência externa da aplicação (entre aplicativo e ambiente ao qual ela está inserida) está relacionada a heurística HU2.</item>
+        <item>Esta heurística não deve ser confundida com o conceito de flexibilidade e eficiência de uso. Embora alguns efeitos de controle estejam relacionados a uma melhor eficiência (como apontados nos Benefícios acima), eles são conceitos diferentes. As heurísticas “HU5 – Prevenção de Erros” e “HU10 – Ajuda ao Usuário para Reconhecer, Diagnosticar e Recuperar-se de Erros” são relacionadas a mostrar, respectivamente, formas de prevenir erros e de informar o usuário sobre o erro e também sobre como recuperar-se do erro, dessa forma, a heurística “HU3 – Controle do Usuário e Liberdade” destina-se a reparar ou corrigir erros, dando ao usuário a chance de desfazer ou refazer suas ações e ter controle sobre os recursos do sistema.</item>
+        <item>Quando se fala em consistência, um aspecto clássico é a consistência da linguagem. Às vezes há palavras que não têm uma tradução adequada, principalmente quando relacionadas à tecnologia. Essas palavras podem ser difíceis de traduzir ou até perder o significado. Portanto, manter algumas palavras em outro idioma pode não ser um problema de “consistência”, mas manter um parágrafo inteiro é definitivamente um.</item>
+        <item>Este conceito não deve ser confundido com “HU10 – Ajuda ao Usuário para Reconhecer, Diagnosticar e Recuperar-se de Erros”. Se o usuário puder acionar um erro, isso é um problema de prevenção.</item>
+        <item>Para esta heurística específica, o avaliador pode encontrar alguns problemas relacionados à “HU5 – Prevenção de Erros”. A questão principal aqui é observar que essa heurística está fortemente relacionada à sobrecarga de informações. Não se trata da disponibilidade de informações, mas da quantidade de informações que o usuário precisa memorizar para usar o sistema corretamente e com mais eficiência, com base no contexto de uso da aplicação.</item>
+        <item>Claramente, existe um limite em termos de personalização. Modificações estéticas podem ser possíveis na maioria das partes do sistema, mas algumas coisas não são alcançáveis. Mudanças significativas devem ser analisadas caso a caso quanto à validade de sua implementação, e é necessário considerar o perfil do público-alvo na análise. Não confundir esta heurística com “HU8 – Eficiência de Uso e Desempenho”, a HU7 se refere a customização de partes da aplicação para atender usuários mais avançados e/ou iniciantes. A HU8 se refere a performance geral da aplicação e da minimização de passos para uso de determinada funcionalidade.</item>
+        <item>Os problemas relacionados ao desempenho do hardware devem ser separados dos problemas relacionados ao desempenho da rede. Mesmo que esses problemas afetem a usabilidade, eles não fazem parte do escopo desta pesquisa, considerando que eles são afetados por diversos fatores complexos. Em relação à duração de uma sequência de etapas para executar uma tarefa, o limite entre normal e excessivo é um assunto subjetivo. O avaliador deve usar seus próprios critérios.</item>
+        <item>Para distinguir entre um design minimalista e uma interface sobrecarregada, é necessário que o avaliador defina um critério subjetivo no momento da avaliação. Se o avaliador enfrentar uma interface sobrecarregada, há claramente um problema relacionado a essa heurística.</item>
+        <item>O avaliador deve distinguir entre esta heurística e “HU5 – Prevenção de Erros”. A principal diferença aqui é o tempo. Se o erro ainda não aconteceu, estamos falando de prevenção (HU5), caso contrário, pode ser um problema relacionado a essa heurística.</item>
+        <item>A principal dificuldade em aplicar esta heurística é como diferenciá-la de “HU5 – Prevenção de Erros”. Embora a documentação e as mensagens de ajuda possam evitar erros, essa heurística é muito focada em instruções sobre como usar o sistema (como interação por gestos do usuário), informações adicionais sobre opções e configuração, e assim por diante.</item>
+        <item>Um possível problema na aplicação desta heurística pode ser o caso de usuários com necessidades/características especiais. Neste caso, o avaliador deve usar seu próprio critério. Existem aplicativos que podem ser desconfortáveis para a maioria dos usuários e esse é um problema relacionado a essa heurística. Um aspecto muito importante a considerar é “popularidade”, ou seja, o que melhor se adéqua à maioria dos usuários. No entanto, cada caso deve ser analisado separadamente e o avaliador deve estabelecer seus critérios.</item>
+        <item>O objetivo aqui não é apenas a documentação ou maneiras de informar ao usuário em relação aos métodos de proteção utilizados, mas de fato ter recursos do aplicativo que garantam a privacidade dos dados do usuário (como exibições de dados diferenciadas o usuário e os seus seguidores, em um aplicativo de rede social).</item>
+    </string-array>
+
+    <string-array name="list_sub_heuristic">
+        <item>Cada tela da aplicação começa com um título ou um cabeçalho que descreve o conteúdo da tela?</item>
+        <item>Um único ícone selecionado é claramente visível quando está cercado por ícones não selecionados?</item>
+        <item>Se o sistema receber informações importantes de ações de fundo (por exemplo, notificações internas do aplicativo, processo de envio upload ou download, entre outros), o sistema responde (por exemplo, vibrar, soar) alertando os usuários?</item>
+        <item>Se os usuários precisarem navegar entre várias telas, elas possuem títulos significativos?</item>
+        <item>Se notificações pop-up são usadas para exibir mensagens de erro, elas permitem que o usuário veja o campo com o erro?</item>
+        <item>Existe alguma forma de feedback do sistema para cada ação do usuário?</item>
+        <item>Se o usuário está rolando para o limite de um elemento (por exemplo, listview), há alguma sugestão visual?</item>
+        <item>Se o sistema contém splash screens (primeira tela mostrada durante a execução de um aplicativo), há algum feedback visual do que o sistema está fazendo enquanto as telas iniciais são exibidas?</item>
+        <item>Se os modos sobrescrever e inserir estiverem disponíveis, há uma indicação visual de qual deles o usuário está?</item>
+        <item>O sistema fornece divulgação de progresso informativo ao executar uma ação que o usuário precisa aguardar (porcentagem de conclusão ou tempo de espera para completar a tarefa)?</item>
+        <item>Se forem utilizados menus expansíveis, os rótulos dos menus indicam que eles se expandem para um conjunto de opções?</item>
+        <item>Depois que o usuário conclui uma ação (ou grupo de ações), o aplicativo indica se é possível iniciar uma nova ação (ou grupo de ações)?</item>
+        <item>Existe feedback visual na tela sobre quais opções são selecionáveis (permitem interação do usuário)?</item>
+        <item>Se vários objetos na tela puderem ser selecionadas, existe um feedback visual sobre quais objetos já foram selecionados?</item>
+        <item>Existe feedback visual quando os objetos são movidos de um ponto da tela para outro?</item>
+        <item>Existe feedback visual quando o usuário realiza a ação de atualizar (refresh) a tela?</item>
+        <item>O usuário pode identificar o estado do sistema, e as alternativas de ação disponíveis, simplesmente ao olhar para as informação exibidas na tela da aplicação?</item>
+        <item>As barras de status do sistema operacional são, na maioria das vezes (ou sempre) visíveis, exceto para conteúdo multimídia?</item>
+        <item>Os botões do sistema operacional (por exemplo, botão voltar e botão inicial) são a maioria (ou sempre) visíveis, exceto para conteúdo multimídia?</item>
+        <item>Se houver atrasos observáveis (mais de cinco segundos) no tempo de resposta do sistema, o usuário é informado sobre o estado da aplicação?</item>
+        <item>Os tempos de resposta são apropriados para a tarefa? (Digitação, swipe, scrolling: 1–50 milissegundos; Tarefas simples e frequentes: menos de 1 segundo; Tarefas comuns: 2–4 segundos; Tarefas complexas: 8–12 segundos).</item>
+        <item>Os tempos de resposta são adequados ao processamento cognitivo do usuário? (A continuidade de pensamento é necessária e a informação deve ser lembrada em várias respostas: menos de dois segundos. Altos níveis de concentração não são necessários e não é necessário lembrar informações (minimizar a carga de memória do usuário): de dois a quinze segundos).</item>
+        <item>As metáforas (por exemplo, ícones que correspondem a ações) são utilizadas?</item>
+        <item>Os ícones são familiares ao usuário, dado o contexto em que a aplicação está inserida?</item>
+        <item>Os elementos da tela são ordenados da maneira lógica, de forma a considerar as características do usuário e o contexto de uso da aplicação?</item>
+        <item>As teclas de função estão nomeadas (labeled) de forma clara e distinta?</item>
+        <item>Os elementos da interface, relacionados e interdependentes, aparecem na mesma tela?</item>
+        <item>Nas telas de entrada de dados, as tarefas são descritas na terminologia familiar aos usuários (considerando o contexto que a aplicação está inserida)?</item>
+        <item>Se formas são utilizadas como uma dica visual (por exemplo, uma forma de “bola de basquete”), ela combina com convenções culturais (é exibida de forma a lembrar uma “bola de basquete”)?</item>
+        <item>As terminologias dos textos utilizados na aplicação são consistentes com o domínio das tarefas do usuário (são significativas ao usuário)? (Use a nomenclatura no domínio específico; Empregue o jargão do usuário e evite o jargão do sistema).</item>
+        <item>Elementos interativos da aplicação possuem correspondência com o mundo real (por exemplo, física de rolagem de lista)?</item>
+        <item>O sistema alinha automaticamente o formato para valores numéricos (por exemplo, inserindo espaços à direita, entrelinhas, vírgulas e/ou um símbolo monetário)?</item>
+        <item>O usuário pode interagir com o sistema continuamente (sem enfrentar travamentos ou congelamentos do sistema)?</item>
+        <item>Quando a tarefa de um usuário é concluída, o sistema aguarda um sinal do usuário antes de finalizá-la de fato?</item>
+        <item>O teclado virtual é exibido apenas quando necessário?</item>
+        <item>Caso o teclado virtual seja exibido, o usuário é capaz de minimizá-lo?</item>
+        <item>Os dados pessoais (dados sensíveis) do usuário podem ser alterados?</item>
+        <item>Dados gerais de cadastro (caso o aplicativo possua essa funcionalidade) do usuário podem ser alterados?</item>
+        <item>Se uma caixa de diálogo estiver aparecendo, a localização do botão positivo (por exemplo, botão “OK”, botão “Próximo”) no lado direito e do negativo (por exemplo, botão “Cancelar”, botão “Voltar”) esta à esquerda? (Colocar botões positivos à direita dá uma sensação de continuar e progredir na tarefa, ao passo que colocar os botões negativos à esquerda dão uma sensação de reverter a tarefa. Isso também é mais fácil de compreender de relance).</item>
+        <item>Se uma caixa de diálogo estiver sendo exibida, o usuário pode ser dispensado tocando em alguma área fora da caixa de diálogo?</item>
+        <item>Os notificações indicam que o usuário está no controle (dando opções de ações)?</item>
+        <item>Existe uma função “desfazer” a nível de uma única ação, uma entrada de dados e um grupo completo de ações?</item>
+        <item>Os usuários podem cancelar operações em andamento?</item>
+        <item>Os usuários podem facilmente reverter suas ações?</item>
+        <item>Se os usuários puderem voltar a tela anterior, poderão alterar sua opção ou algum dado?</item>
+        <item>Se listviews forem longas (por exemplo, mais de sete itens), os usuários podem selecionar quaisquer itens simplesmente ao rolar a lista?</item>
+        <item>As teclas de função que podem causar sérias consequências ao usuário, têm o recurso de desfazer a ação?</item>
+        <item>O sistema usa transições para mostrar relações entre telas?</item>
+        <item>Os usuários podem digitar antecipadamente em campos de entrada de dados, caso não tenha preenchido os campos anteriores?</item>
+        <item>As alterações de caracteres são permitidos nos campos de entrada de dados?</item>
+        <item>Usuários podem avançar e retroceder entre campos ou opções de entrada de dados?</item>
+        <item>Caso o aplicativo possibilite o uso de um ponteiro de mouse, os usuários têm a opção de clicar em itens da interface?</item>
+        <item>Padrões de formatação da indústria ou da empresa são seguidos de forma consistente em todas as telas do aplicativo?</item>
+        <item>Quando notificações implicam uma ação necessária, o texto da mensagem é consistente com essa ação?</item>
+        <item>Palavras caso estejam abreviadas, seguem o mesmo padrão de abreviação?</item>
+        <item>Os padrões de design da plataforma (por exemplo, as diretrizes de design do iOS e Android) são seguidos?</item>
+        <item>Cada tela possui um título?</item>
+        <item>Todas as telas do sistema são exibidas de forma consistente com todos os dispositivos de diferentes plataformas/fabricantes (por exemplo, iPhone, Samsung Galaxy)?</item>
+        <item>Existe uma localização consistente do menu, na interface do aplicativo, em todo o sistema?</item>
+        <item>Existe consistência de tipografia em todo o aplicativo?</item>
+        <item>Existe um design consistente em elementos de entrada (por exemplo, caixa de texto, menu suspenso, etc.)?</item>
+        <item>Existe um design consistente no tamanho físico dos elementos da tela (tamanho da fonte, tamanho do elemento em relação a outros)?</item>
+        <item>A aparência da fonte do sistema (por exemplo, tamanho, tipo de letra) pode ser alterado para ser consistente com a aparência da fonte do sistema operacional (por exemplo, iOS ou Android)?</item>
+        <item>As cores são consistente em todo o aplicativo?</item>
+        <item>A estrutura de um valor, na entrada de dados do aplicativo, é consistente em todo o sistema?</item>
+        <item>O sistema de navegação do aplicativo é padronizado?</item>
+        <item>A interação por gestos em elementos semelhantes da interface é padronizado em todo o aplicativo?</item>
+        <item>A estrutura de um valor na entrada de dados é consistente em todo o aplicativo?</item>
+        <item>Caso o sistema contenha várias telas para entrada de dados, todas elas têm o mesmo título?</item>
+        <item>O sistema impede que usuários cometam erros sempre que possível?</item>
+        <item>Usuários são solicitados a confirmar comandos que tenham consequências drásticas e destrutivas?</item>
+        <item>É evitado o uso de textos muito longos, que não são mostrados completamente (por exemplo, utilizam no final “…”), na aplicação? (informações importantes podem estar ocultas e levar o usuário a cometer erros).</item>
+        <item>Quando o usuário opta por ficar logado, ele recebe uma mensagem informando sobre os possíveis riscos (caso exista)?</item>
+        <item>Objetos na tela têm o tamanho fácil de tocar?</item>
+        <item>Objetos tocáveis (por exemplo, botões) da tela estão colocados muito próximos?</item>
+        <item>Existem diferenças visuais entre objetos de interação (por exemplo, botões) e objetos de informação (por exemplo, rótulos, imagens)?</item>
+        <item>Embora a parte visível do elemento da tela possa ser pequena, há algum espaço de destino invisível que caso o usuário o atinga, a ação ainda será realizada?</item>
+        <item>Opções de menu são lógicas, distintas e mutuamente exclusivas?</item>
+        <item>Teclas de função que podem causar consequências mais graves estão em posições difíceis de serem alcançadas?</item>
+        <item>Na interface de entrada de dados, o aplicativo informa em tempo real o usuário sobre erros, caso insira a informação no padrão errado?</item>
+        <item>Os tipos de entrada de dados são apropriados para tipos de informação (por exemplo, usar o tipo de entrada numérico para informações numéricas)?</item>
+        <item>Campos de entrada de dados da tela contêm valores padrão quando apropriado?</item>
+        <item>Todos os dados que o usuário precisa são exibidos em cada etapa de uma sequência de transações (várias telas)?</item>
+        <item>Os elementos da tela foram agrupados em zonas lógicas e cabeçalhos foram usados para distinguir as zonas?</item>
+        <item>A primeira palavra (quando disponível) de cada escolha (elemento interativo da interface) do usuário é a mais importante?</item>
+        <item>O sistema fornece mapeamento, ou seja, os relacionamentos entre gestos e ações são intuitivos?</item>
+        <item>Nos menus de navegação, o número de itens e termos (por item) são controlado para evitar a sobrecarga da memória cognitiva?</item>
+        <item>Para contextos de uso, em que o usuário necessite destinar sua atenção a uma outra tarefa em paralelo, a interface é adaptada para reduzir a carga de memória do usuário?</item>
+        <item>Os campos de entrada de dados obrigatórios estão claramente marcados?</item>
+        <item>O sistema fornece uma entrada de exemplo para informações complexas ou específicas do formato?</item>
+        <item>As solicitações, sugestões e mensagens são colocadas em locais que o usuário provavelmente estará olhando na tela (locais intuitivos para mostrar determinada informação)?</item>
+        <item>Áreas de texto na tela têm “espaço para respirar” ao redor delas?</item>
+        <item>Existe uma distinção visual óbvia entre o “escolha um” e “escolha muitos” em uma lista de elementos?</item>
+        <item>Entre a descrição de um campo de entrada de dados e o campo em si há um espaço mínimo que os separaram?</item>
+        <item>Os campos opcionais de entrada de dados estão claramente destacados?</item>
+        <item>O realce de cor é usado para chamar a atenção do usuário, quando necessário?</item>
+        <item>Objetos interativos da interface, inativos, estão esmaecidos ou com coloração mais fraca em relação as outras cores?</item>
+        <item>Tamanho, fonte em negrito ou sublinhado, cor, sombreamento ou tipografia, são utilizados para mostrar hierarquia entre os itens da tela?</item>
+        <item>As bordas são usadas para identificar grupos de objetos ou informações significativos?</item>
+        <item>A mesma cor foi usada para agrupar elementos relacionados?</item>
+        <item>A cor é usada em conjunto com alguma outra sugestão redundante?</item>
+        <item>Há bom contraste de cores e brilho entre as cores da imagem e do plano de fundo?</item>
+        <item>As cores claras, brilhantes e saturadas foram usadas para enfatizar os dados importantes em relação as cores mais escuras?</item>
+        <item>As telas de entrada de dados indicam quando os campos são opcionais?</item>
+        <item>Os usuários são os iniciadores de ações, e não os que respondem?</item>
+        <item>Nas configurações do aplicativo é possível customizar alguma parte do sistema?</item>
+        <item>Se o sistema oferece suporte a usuários iniciantes e especialistas, vários níveis de detalhes de mensagens de erro estão disponíveis?</item>
+        <item>Se o sistema oferece suporte a usuários iniciantes e especialistas, as customização são adequadas com as características do público alvo (por exemplo, customizações significativas para usuários que utilizam o sistema em um contexto de uso médico)?</item>
+        <item>Se o sistema oferece suporte a usuários iniciantes e especialistas, elementos da interface podem ser customizáveis?</item>
+        <item>Se o sistema oferece suporte a usuários iniciantes e especialistas, elementos de navegação podem ser customizáveis?</item>
+        <item>As telas iniciais que não fazem nada (nenhuma tarefa em segundo plano, apenas mostre a imagem ou o vídeo) foram evitadas?</item>
+        <item>Os menus utilizados com maior frequência estão nas posições mais acessíveis?</item>
+        <item>O sistema utiliza informações do dispositivo como data e hora e geolocalização como dados de entrada quando necessário?</item>
+        <item>Em um formulário de entrada de dados, o usuário pode mover o foco de uma caixa de texto para outra caixa de texto pressionando “próximo” no teclado virtual?</item>
+        <item>O sistema permite que os usuários interajam com elementos da interface deslizando, gesticulando ou “beliscando”, em vez de apenas tocar (por exemplo, usuários podem apertar o elemento de imagem para aumentar e diminuir o zoom, usuários podem deslizar para a esquerda para ir a página anterior)?</item>
+        <item>Se a lista for muito longa, o sistema fornece ferramentas para filtrar itens ou rolar mais rapidamente?</item>
+        <item>Animações de transição entre telas e/ou de elementos da interface são fluidos?</item>
+        <item>As principais funcionalidades da aplicação são facilmente acessadas (poucos passos a serem realizados)?</item>
+        <item>Em campos de pesquisa é permitido acessar o histórico de forma a permitir que usuários selecionem informações digitadas anteriormente?</item>
+        <item>O uso de imagens ou ícones é utilizável prioritariamente a textos na aplicação?</item>
+        <item>Somente as informações essenciais para a tomada de decisões são exibidas na tela?</item>
+        <item>Todos os ícones de um conjunto são visuais e conceitualmente distintos?</item>
+        <item>Objetos grandes, linhas arrojadas e áreas simples foram usadas para distinguir ícones?</item>
+        <item>Os grupos significativos de itens são separados por espaços em branco ou vazios?</item>
+        <item>Cada tela de entrada de dados tem um título curto, simples, claro e distinto?</item>
+        <item>Os rótulos de labels são breves, familiares e descritivos?</item>
+        <item>As solicitações são expressas afirmativamente e usam a voz ativa?</item>
+        <item>Cada opção de menu de nível inferior é associada a apenas um menu de nível superior?</item>
+        <item>Os títulos dos menus ou itens da interface são breves, mas longos o suficiente para se comunicar?</item>
+        <item>O sistema não usa muitos tipos de letra (fontes podem ser usadas para enfatizar o conteúdo, mas muitas fontes podem confundir os usuários)?</item>
+        <item>Os elementos de informação (por exemplo, imagens, ícones) se destacam do fundo?</item>
+        <item>Animações em movimento desnecessárias de informações (por exemplo, zoom in, zoom out) são evitadas?</item>
+        <item>O som ou algum feedback tátil são usado para sinalizar um erro?</item>
+        <item>As solicitações são declaradas construtivamente, sem críticas explícitas ou implícitas ao usuário?</item>
+        <item>As mensagens de erro são breves e não ambíguas?</item>
+        <item>As mensagens de erro são redigidas para que o sistema, não o usuário, assuma a culpa?</item>
+        <item>Se forem usadas mensagens de erro bem-humoradas, elas são apropriadas e inofensivas para a população de usuários?</item>
+        <item>As mensagens de erro estão gramaticalmente corretas?</item>
+        <item>As mensagens de erro evitam o uso de pontos de exclamação?</item>
+        <item>Mensagens de erro evitam o uso de palavras violentas ou hostis?</item>
+        <item>As mensagens de erro evitam um tom antropomórfico?</item>
+        <item>Mensagens de erro no sistema usam um estilo gramatical, forma, terminologia e abreviações consistentes?</item>
+        <item>As mensagens colocam os usuários no controle do sistema?</item>
+        <item>A linguagem de comando usa a sintaxe normal do objeto de ação?</item>
+        <item>Se um erro for detectado em um campo de entrada de dados, o sistema realça o erro e/ou o elemento que precisa ser alterado?</item>
+        <item>As mensagens de erro informam o usuário sobre a gravidade do erro?</item>
+        <item>Mensagens de erro sugerem a causa do problema?</item>
+        <item>Mensagens de erro fornecem informações semânticas apropriadas?</item>
+        <item>Mensagens de erro indicam qual ação o usuário precisa executar para corrigir o erro?</item>
+        <item>Se o sistema oferecer suporte a usuários iniciantes e especialistas, vários níveis de detalhes da mensagem de erro estarão disponíveis?</item>
+        <item>Caso existam instruções/tutoriais de ajuda, eles são visualmente distintos e visíveis do resto da interface?</item>
+        <item>As instruções seguem a sequência de ações do usuário?</item>
+        <item>Se os itens do menu ou lista são ambíguos, o sistema fornece informações adicionais quando um item é selecionado?</item>
+        <item>Navegação: a informação é fácil de encontrar?</item>
+        <item>Apresentação: o layout é bem projetado?</item>
+        <item>Conversação: as informações são precisas, completas, e fáceis de entender?</item>
+        <item>As informações são relevantes? (Orientada por metas (o que posso fazer com este programa?); Descritivo (para que serve isso?); Procedural (como faço essa tarefa?); Interpretativo (por que isso aconteceu?); Navegação (onde estou?)).</item>
+        <item>Existe ajuda para dados sensíveis do usuário?</item>
+        <item>O usuário pode alterar o nível de detalhe (da informação) disponível?</item>
+        <item>É fácil acessar e retornar do sistema de ajuda?</item>
+        <item>Os usuários podem retomar o trabalho de onde pararam depois de acessar a ajuda?</item>
+        <item>Se uma seção de FAQs existir, a seleção e a texto das perguntas e respostas estão relacionadas corretamente com o assunto?</item>
+        <item>Quando os usuários começam a usar o sistema pela primeira vez, o sistema fornece instruções (ou dicas)?</item>
+        <item>Se forem fornecidas instruções para o usuário da primeira vez, elas podem ser caracterizadas com o descrito abaixo? (Ser simples e claro; Focando em alguns recursos (por exemplo, recursos usados com frequência); Sendo necessário que os usuários iniciem).</item>
+        <item>Os campos para entrada de dados que requerem digitação são mínimos?</item>
+        <item>Para telas de entrada de dados com muitos campos ou informações incompletas para preencher, os usuários podem salvar uma tela (ou parte dela) parcialmente preenchida?</item>
+        <item>As famílias tipográficas utilizadas no sistema são adequadas para leitura (não contém homoglifos, por exemplo, 1, I e L; Zero e O)?</item>
+        <item>O aplicativo implementa algum sistema de acessibilidade próprio ou suporta o da plataforma (por exemplo, voice over no sistema iOS utilizado para leitura e navegação por usuários com deficiência visuais)?</item>
+        <item>O aplicativo é otimizado para o contexto de uso que usuários estão inseridos (por exemplo, usuário com deficiência motora)?</item>
+        <item>A disposição dos elementos de layout da aplicação é baseado e otimizado para o contexto em que o público alvo está inserido (por exemplo, aplicativo de mapas que geralmente é utilizado enquanto o usuário realiza outra atividade paralela)?</item>
+        <item>O sistema suporta ambas as orientações (horizontal e vertical)?</item>
+        <item>Caso o aplicativo funcione na orientação vertical e horizontal, a disposição dos elementos de layout se mantém os mesmos?</item>
+        <item>Cada ícone individual é um membro harmonioso de uma família de ícones?</item>
+        <item>Os detalhes excessivos no design do ícone foram evitados?</item>
+        <item>A cor foi usada com discrição?</item>
+        <item>A cor foi usada especificamente para chamar a atenção, comunicar a organização, indicar mudanças de status e estabelecer relações?</item>
+        <item>As áreas protegidas são completamente inacessíveis?</item>
+        <item>Áreas protegidas ou confidenciais tem a opção de serem acessadas com senhas?</item>
+        <item>O recurso de privacidade é eficaz e bem-sucedido na aplicação?</item>
+        <item>Para aplicativos multiusuários, o sistema evita que o usuário fique permanentemente conectado/logado?</item>
+        <item>Se o aplicativo armazenar informações de cartão de crédito, ele permiti que os usuários decidam se desejam permanecer logados?</item>
+        <item>Há informações de como os dados pessoais são protegidos e sobre o copyright do aplicativo?</item>
+        <item>Caso exista transações no aplicativo, há a possibilidade dos usuários salvarem os números de confirmação para essa transação (por exemplo, enviando-os por e-mail)?</item>
+    </string-array>
+</resources>
